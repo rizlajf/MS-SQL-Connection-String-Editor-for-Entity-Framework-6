@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             DBNameComboBox.Enabled = false;
             groupBox1.Visible = true;
             groupBox1.Text = this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
@@ -82,6 +82,8 @@ namespace WindowsFormsApplication1
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            this.DBNameComboBox.DataSource = null;
+            this.DBNameComboBox.Items.Clear();
             groupBox2.Visible = true;
             string loginName = LoginNamrTextBox.Text;
             LoginAndLoad(loginName, null);
@@ -96,8 +98,14 @@ namespace WindowsFormsApplication1
 
             connection.DataSource = this.ServerNameComboBox.GetItemText(this.ServerNameComboBox.SelectedItem);
             // enter credentials if you want
-            //connection.UserID = //get username;
-            // connection.Password = //get password;
+            if(!string.IsNullOrEmpty(userName))
+            {
+                connection.UserID = userName;
+            }
+            if (!string.IsNullOrEmpty(password))
+            {
+                connection.Password = password;
+            }
             connection.IntegratedSecurity = true;
 
             String strConn = connection.ToString();
@@ -132,11 +140,16 @@ namespace WindowsFormsApplication1
 
         private void ServerNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.DBNameComboBox.DataSource = null;
+            this.DBNameComboBox.Items.Clear();
+            this.DBNameComboBox.Enabled = true;
             NewServer = this.ServerNameComboBox.GetItemText(this.ServerNameComboBox.SelectedItem);
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            this.DBNameComboBox.DataSource = null;
+            this.DBNameComboBox.Items.Clear();
             groupBox3.Visible = true;
             string userName = UserNametextBox.Text;
             string pw = PassWordTextBox.Text;

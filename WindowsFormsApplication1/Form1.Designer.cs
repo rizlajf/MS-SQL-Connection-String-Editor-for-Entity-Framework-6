@@ -49,14 +49,14 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
-            this.connectionStringtextBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.PNTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -73,18 +73,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 13);
+            this.label1.Size = new System.Drawing.Size(194, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Select Connection String To be Edited";
+            this.label1.Text = "Select Connection String To be Edited :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Name";
+            this.label2.Text = "Name :";
             // 
             // groupBox1
             // 
@@ -92,19 +92,17 @@
             this.groupBox1.Controls.Add(this.CancelButton);
             this.groupBox1.Controls.Add(this.SaveButton);
             this.groupBox1.Controls.Add(this.TestButton);
-            this.groupBox1.Controls.Add(this.DBNameComboBox);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.connectionStringtextBox1);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.PNTextBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.NameTextBox);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Location = new System.Drawing.Point(24, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(589, 473);
@@ -115,9 +113,9 @@
             // ServerNameComboBox
             // 
             this.ServerNameComboBox.FormattingEnabled = true;
-            this.ServerNameComboBox.Location = new System.Drawing.Point(162, 129);
+            this.ServerNameComboBox.Location = new System.Drawing.Point(189, 129);
             this.ServerNameComboBox.Name = "ServerNameComboBox";
-            this.ServerNameComboBox.Size = new System.Drawing.Size(270, 21);
+            this.ServerNameComboBox.Size = new System.Drawing.Size(326, 21);
             this.ServerNameComboBox.TabIndex = 19;
             this.ServerNameComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerNameComboBox_SelectedIndexChanged);
             // 
@@ -154,20 +152,20 @@
             // DBNameComboBox
             // 
             this.DBNameComboBox.FormattingEnabled = true;
-            this.DBNameComboBox.Location = new System.Drawing.Point(101, 378);
+            this.DBNameComboBox.Location = new System.Drawing.Point(176, 271);
             this.DBNameComboBox.Name = "DBNameComboBox";
-            this.DBNameComboBox.Size = new System.Drawing.Size(270, 21);
+            this.DBNameComboBox.Size = new System.Drawing.Size(326, 21);
             this.DBNameComboBox.TabIndex = 15;
             this.DBNameComboBox.SelectedIndexChanged += new System.EventHandler(this.DBNameComboBox_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 381);
+            this.label9.Location = new System.Drawing.Point(41, 381);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 13);
+            this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 14;
-            this.label9.Text = "DataBase Name";
+            this.label9.Text = "DataBase Name :";
             // 
             // groupBox3
             // 
@@ -183,9 +181,9 @@
             // 
             // PassWordTextBox
             // 
-            this.PassWordTextBox.Location = new System.Drawing.Point(100, 45);
+            this.PassWordTextBox.Location = new System.Drawing.Point(118, 45);
             this.PassWordTextBox.Name = "PassWordTextBox";
-            this.PassWordTextBox.Size = new System.Drawing.Size(269, 20);
+            this.PassWordTextBox.Size = new System.Drawing.Size(251, 20);
             this.PassWordTextBox.TabIndex = 7;
             // 
             // label8
@@ -193,15 +191,15 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(21, 47);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 6;
-            this.label8.Text = "password";
+            this.label8.Text = "password :";
             // 
             // UserNametextBox
             // 
-            this.UserNametextBox.Location = new System.Drawing.Point(100, 18);
+            this.UserNametextBox.Location = new System.Drawing.Point(118, 18);
             this.UserNametextBox.Name = "UserNametextBox";
-            this.UserNametextBox.Size = new System.Drawing.Size(269, 20);
+            this.UserNametextBox.Size = new System.Drawing.Size(251, 20);
             this.UserNametextBox.TabIndex = 5;
             // 
             // label7
@@ -209,9 +207,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(21, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 4;
-            this.label7.Text = "User Name";
+            this.label7.Text = "User Name :";
             // 
             // groupBox2
             // 
@@ -225,9 +223,9 @@
             // 
             // LoginNamrTextBox
             // 
-            this.LoginNamrTextBox.Location = new System.Drawing.Point(100, 23);
+            this.LoginNamrTextBox.Location = new System.Drawing.Point(118, 23);
             this.LoginNamrTextBox.Name = "LoginNamrTextBox";
-            this.LoginNamrTextBox.Size = new System.Drawing.Size(269, 20);
+            this.LoginNamrTextBox.Size = new System.Drawing.Size(251, 20);
             this.LoginNamrTextBox.TabIndex = 5;
             // 
             // label6
@@ -235,9 +233,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(21, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Login Name";
+            this.label6.Text = "Login Name :";
             // 
             // radioButton2
             // 
@@ -266,33 +264,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 132);
+            this.label5.Location = new System.Drawing.Point(45, 132);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 13);
+            this.label5.Size = new System.Drawing.Size(144, 13);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Server Name/SQL instance";
-            // 
-            // connectionStringtextBox1
-            // 
-            this.connectionStringtextBox1.Location = new System.Drawing.Point(114, 94);
-            this.connectionStringtextBox1.Name = "connectionStringtextBox1";
-            this.connectionStringtextBox1.Size = new System.Drawing.Size(401, 20);
-            this.connectionStringtextBox1.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Connection String";
+            this.label5.Text = "Server Name/SQL instance :";
             // 
             // PNTextBox
             // 
             this.PNTextBox.Location = new System.Drawing.Point(101, 60);
             this.PNTextBox.Name = "PNTextBox";
-            this.PNTextBox.Size = new System.Drawing.Size(401, 20);
+            this.PNTextBox.Size = new System.Drawing.Size(430, 20);
             this.PNTextBox.TabIndex = 5;
             // 
             // label3
@@ -300,16 +282,26 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Provider Name";
+            this.label3.Text = "Provider Name :";
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(60, 27);
+            this.NameTextBox.Location = new System.Drawing.Point(101, 27);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(401, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(430, 20);
             this.NameTextBox.TabIndex = 3;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.DBNameComboBox);
+            this.groupBox4.Location = new System.Drawing.Point(13, 107);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(518, 312);
+            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Connection String :";
             // 
             // Form1
             // 
@@ -327,6 +319,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,8 +334,6 @@
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox PNTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox connectionStringtextBox1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -360,6 +351,7 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.ComboBox ServerNameComboBox;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
 
