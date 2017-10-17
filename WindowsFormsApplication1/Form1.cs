@@ -16,7 +16,10 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         ConnectionStringClass connectionStringObject = null;
-        //SqlConnectionStringBuilder connection = null;
+        string NewServer = string.Empty;
+        string NewDb = string.Empty;
+        IList<connectionString> connectionStringsList = null;
+        Configuration config = null;
         public Form1()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace WindowsFormsApplication1
             string path = Program.CommandLineArgs[0];
             ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
             configMap.ExeConfigFilename = path;
-            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
+            config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
             connectionStringObject = new ConnectionStringClass();
             connectionStringObject.connectionStrings = new List<connectionString>();
             ConnectionStringSettingsCollection connections = config.ConnectionStrings.ConnectionStrings;
@@ -54,7 +57,7 @@ namespace WindowsFormsApplication1
                     connectionStringObject.connectionStrings.Add(cs);
                 }
             }
-
+            connectionStringsList = connectionStringObject.connectionStrings;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,6 +67,7 @@ namespace WindowsFormsApplication1
             groupBox1.Text = this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
             groupBox2.Visible = false;
             groupBox3.Visible = false;
+            NameTextBox.Text = this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
             LoadListOfValues();
         }
 
@@ -123,12 +127,12 @@ namespace WindowsFormsApplication1
 
         private void DBNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            NewDb = this.DBNameComboBox.GetItemText(this.DBNameComboBox.SelectedItem);
         }
 
         private void ServerNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            NewServer = this.ServerNameComboBox.GetItemText(this.ServerNameComboBox.SelectedItem);
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -143,6 +147,76 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder(); 
+            connectionString newCS = connectionStringsList.Single(p => p.Name == this.comboBox1.GetItemText(this.comboBox1.SelectedItem));
+            //newCS.ConnectionString =
+
+            // Set the properties for the data source.
+            sqlBuilder.DataSource = NewServer;
+            sqlBuilder.InitialCatalog = NewDb;
+            sqlBuilder.IntegratedSecurity = true;
+
+            // Build the SqlConnection connection string.
+            string providerString = sqlBuilder.ToString();
+            newCS.ConnectionString = providerString;
+            newCS.Name = NameTextBox.Text;
+            newCS.Provider = PNTextBox.Text;
+
+            //// Initialize the EntityConnectionStringBuilder.
+            //EntityConnectionStringBuilder entityBuilder =
+            //new EntityConnectionStringBuilder();
+
+            ////Set the provider name.
+            //entityBuilder.Provider = providerName;
+
+            //// Set the provider-specific connection string.
+            //entityBuilder.ProviderConnectionString = providerString;
+
+            //// Set the Metadata location.
+            //entityBuilder.Metadata = @"res://*/AdventureWorksModel.csdl|
+            //            res://*/AdventureWorksModel.ssdl|
+            //            res://*/AdventureWorksModel.msl";
+            //Console.WriteLine(entityBuilder.ToString());
+
+            //using (EntityConnection conn =
+            //new EntityConnection(entityBuilder.ToString()))
+            //{
+            //    conn.Open();
+            //    Console.WriteLine("Just testing the connection.");
+            //    conn.Close();
+            //}
+
+            Configuration Config1 = config;
+            ConnectionStringsSection conSetting = (ConnectionStringsSection)Config1.GetSection("connectionStrings");
+            ConnectionStringSettings StringSettings = new ConnectionStringSettings(newCS.Name, newCS.ConnectionString, newCS.Provider);
+            conSetting.ConnectionStrings.Remove(StringSettings);
+            conSetting.ConnectionStrings.Add(StringSettings);
+            Config1.Save(ConfigurationSaveMode.Modified);
+            ClearFormData();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            ClearFormData();
+        }
+
+        private void ClearFormData()
+        {
+            comboBox1.SelectedIndex = -1;
+            ServerNameComboBox.SelectedIndex = -1;
+            DBNameComboBox.SelectedIndex = -1;
+            NameTextBox.Clear();
+            PNTextBox.Clear();
+            LoginNamrTextBox.Clear();
+            UserNametextBox.Clear();
+            PassWordTextBox.Clear();
+            //radioButton1.Checked = false;
+            //radioButton2.Checked = false;
+        }
+
 
 
         //public List<string> GetDatabaseList()
